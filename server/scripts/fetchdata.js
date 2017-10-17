@@ -64,11 +64,11 @@ let fetchPacks = apiRequest('packs')
     .then(packs => {
         console.info(packs.length + ' packs fetched');
     })
-    .catch(() => {
+    .catch((err) => {
+        console.error(err);
         console.error('Unable to fetch packs');
     });
 
 Promise.all([fetchCards, fetchPacks])
     .then(() => db.close())
     .catch(() => db.close());
-

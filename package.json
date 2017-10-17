@@ -9,7 +9,9 @@
     "karma": "cross-env karma start karma.config.js --single-run",
     "cover": "cross-env JASMINE_CONFIG_PATH=./jasmine.json istanbul cover --include-all-sources jasmine",
     "lint": "eslint server/ test/server/ client/ --ext=js --ext=jsx",
-    "build": "cross-env NODE_ENV=production webpack -p --config webpack.config.production.js"
+    "build": "cross-env NODE_ENV=production webpack -p --config webpack.config.production.js",
+    "fetch-data": "node server/scripts/fetchdata.js",
+    "dev": "concurrently 'node .' 'node server/gamenode'"
   },
   "repository": {
     "type": "git",
@@ -61,8 +63,8 @@
     "react-async-script": "^0.9.1",
     "react-bootstrap-slider": "^2.0.1",
     "react-bootstrap-typeahead": "^2.0.0-alpha.3",
-    "react-draggable": "^3.0.3",
     "react-dom": "^15.6.2",
+    "react-draggable": "^3.0.3",
     "react-google-recaptcha": "^0.9.7",
     "react-redux": "^4.4.8",
     "react-redux-toastr": "^7.1.5",
@@ -89,6 +91,7 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "body-parser": "^1.18.2",
+    "concurrently": "^3.5.0",
     "eslint": "^4.7.2",
     "eslint-plugin-react": "^7.4.0",
     "file-loader": "^0.11.2",
